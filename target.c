@@ -10,7 +10,7 @@ void * thread_function1(){
 	printf("thread1\n");
 	pthread_mutex_lock(&lock[0]);
 	if(opt == 'd'){
-		sleep(1.5);
+		sleep(2);
 	}
 	pthread_mutex_lock(&lock[1]);
 	pthread_mutex_unlock(&lock[1]);

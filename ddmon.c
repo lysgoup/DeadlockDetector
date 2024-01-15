@@ -102,7 +102,7 @@ int pthread_mutex_lock(pthread_mutex_t * lock){
 
 
 int pthread_mutex_unlock(pthread_mutex_t * lock){
-  int fd = open("channel", O_WRONLY | O_SYNC);
+  int fd = open(".ddtrace", O_WRONLY | O_SYNC);
   if(fd == -1){
     printf("Error opening file: %s\n", strerror(errno));
     return 1;

@@ -118,7 +118,7 @@ void print_cycle(int s, char *file){
   v = s;
   printf("-------------------Below thread, mutex are involved in the deadlock------------------\n");
   while(1){
-    sprintf(command, "addr2line -e target %s",mymutex[v]->line_addr);
+    sprintf(command, "addr2line -e %s %s",file,mymutex[v]->line_addr);
     FILE* fp = popen(command, "r");
     if (fp == NULL) {
         printf("Failed to run command\n" );
@@ -274,7 +274,7 @@ int main(int argc, char* argv[]){
     //algorithm
     check_deadlock(pid, lock, line_addr, argv[1]);
 
-    sprintf(command, "addr2line -e target %s",line_addr);
+    sprintf(command, "addr2line -e %s %s",argv[1], line_addr);
     FILE* fp = popen(command, "r");
     if (fp == NULL) {
         printf("Failed to run command\n" );
